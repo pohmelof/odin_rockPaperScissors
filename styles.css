@@ -1,3 +1,27 @@
+* {
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lightcyan;
+}
+img {
+    padding: 10px;
+    width: 100%;
+    height: auto;
+    transition: all 0.07s;
+}
+button {
+    padding: 0;
+}
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -5,4 +29,83 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+.computer-block,
+.player-block {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.message {
+    min-height: 20px;
+    color: brown;
+}
+
+.player-selection {
+    display: flex;
+    gap: 10px;
+}
+.paper {
+    background-color: lightcoral;
+}
+.rock {
+    background-color: lightblue;
+}
+.scissors {
+    background-color: lightgreen;
+}
+.player-choice,
+.computer-selection {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.player-choice img:hover {
+    cursor:pointer;
+    transform: scale(1.1);
+}
+.selected {
+    border: 2px solid red;
+}
+
+.winner-block {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background-color: lightcyan;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.reset {
+    font-size: 24px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightblue;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0,0,0, 0.2);
+    transition: all 0.05s;
+}
+.reset:hover {
+    transform: translateY(5px);
+}
+.reset:active {
+    transform: scale(0.9)
 }

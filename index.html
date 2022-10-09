@@ -21,13 +21,42 @@
         <h2>Player</h2>
         <h3>Player score: <span class="player-score">0</span></h3>
         <div class="player-selection">
-          <button data-set="Rock" class="btn player-choice">Rock</button>
-          <button data-set="Paper" class="btn player-choice">Paper</button>
-          <button data-set="Scissors" class="btn player-choice">
-            Scissors
+          <button data-set="Rock" class="btn rock player-choice">
+            <img src="./icons/fist.png" alt="Rock" />
+          </button>
+          <button data-set="Paper" class="btn paper player-choice">
+            <img src="./icons/toilet-paper.png" alt="paper" />
+          </button>
+          <button data-set="Scissors" class="btn scissors player-choice">
+            <img src="./icons/scissors.png" alt="Scissors" />
           </button>
         </div>
       </div>
+    </div>
+    <ul>
+      <li>
+        <a href="https://www.flaticon.com/free-icons/fist" title="fist icons"
+          >Fist icons created by Cuputo - Flaticon</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.flaticon.com/free-icons/toilet"
+          title="toilet icons"
+          >Toilet icons created by Smashicons - Flaticon</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.flaticon.com/free-icons/scissors"
+          title="scissors icons"
+          >Scissors icons created by Freepik - Flaticon</a
+        >
+      </li>
+    </ul>
+    <div class="winner-block hidden">
+      <h2 class="win-message"></h2>
+      <button class="reset">RESET</button>
     </div>
     <script src="./app.js"></script>
   </body>
