@@ -1,6 +1,23 @@
 const choices = ["Rock", "Paper", "Scissors"];
 let playerWinCount = 0;
 let computerWinCount = 0;
+let playerSelection = "";
+let computerSelection = "";
+const computerScore = document.querySelector(".computer-score");
+const playerScore = document.querySelector(".player-score");
+const messageEl = document.querySelector(".message");
+let message = "";
+
+const playerChoices = document.querySelectorAll(".player-choice");
+playerChoices.forEach((choice) => choice.addEventListener("click", playRound));
+function playRound(event) {
+  playerSelection = event.target.dataset.set;
+  computerSelection = getComputerChoice();
+  determineWinner(playerSelection, computerSelection);
+  computerScore.innerText = computerWinCount;
+  playerScore.innerText = playerWinCount;
+  messageEl.innerText = message;
+}
 
 function getComputerChoice() {
   const randomNum = Math.floor(Math.random() * 3);
@@ -11,16 +28,9 @@ function capitalize(str) {
   return str.substring(0, 1).toUpperCase() + str.substring(1).toLowerCase();
 }
 
-function playRound() {
-  const playerSelection = capitalize(prompt("Enter rock, paper or scissors:"));
-  const computerSelection = getComputerChoice();
-
-  if (choices.indexOf(playerSelection) === -1) {
-    return `Invalid input`;
-  }
-
+function determineWinner(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return `Draw! You both threw ${playerSelection}`;
+    message = `Draw! You both threw ${playerSelection}`;
   }
 
   if (
@@ -29,14 +39,14 @@ function playRound() {
     (playerSelection === "Scissors" && computerSelection === "Rock")
   ) {
     computerWinCount++;
-    return `You Lose! ${computerSelection} beats ${playerSelection}`;
+    message = `You Lose! ${computerSelection} beats ${playerSelection}`;
   } else if (
     (playerSelection === "Rock" && computerSelection === "Scissors") ||
     (playerSelection === "Paper" && computerSelection === "Rock") ||
     (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
     playerWinCount++;
-    return `You Win! ${playerSelection} beats ${computerSelection}`;
+    message = `You Win! ${playerSelection} beats ${computerSelection}`;
   }
 }
 
@@ -44,20 +54,3 @@ function resetWinCount() {
   playerWinCount = 0;
   computerWinCount = 0;
 }
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound());
-  }
-  if (playerWinCount === computerWinCount) {
-    resetWinCount();
-    return `It's a draw!`;
-  } else if (playerWinCount > computerWinCount) {
-    resetWinCount();
-    return `Player Wins!`;
-  } else {
-    resetWinCount();
-    return `Computer Wins!`;
-  }
-}
-console.log(game());

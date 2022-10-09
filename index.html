@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div class="container">
+      <div class="computer-block">
+        <h2>Computer</h2>
+        <h3>Computer score: <span class="computer-score">0</span></h3>
+        <div class="computer-selection"></div>
+      </div>
+      <div class="message-block">
+        <h3 class="message"></h3>
+      </div>
+      <div class="player-block">
+        <h2>Player</h2>
+        <h3>Player score: <span class="player-score">0</span></h3>
+        <div class="player-selection">
+          <button data-set="Rock" class="btn player-choice">Rock</button>
+          <button data-set="Paper" class="btn player-choice">Paper</button>
+          <button data-set="Scissors" class="btn player-choice">
+            Scissors
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="./app.js"></script>
   </body>
 </html>
